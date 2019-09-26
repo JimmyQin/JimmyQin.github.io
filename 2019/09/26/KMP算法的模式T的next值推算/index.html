@@ -88,17 +88,17 @@
 
 
 
-  <meta name="description" content="next值的定义 当j = 0时，next[0] = -1 集合非空情况下，next[j] = max{k | 1 ≦ k &amp;lt; j 且T[0]…T[K-1] = T[J-K]…T[J-1]} 其他情况，next[j] = 0  设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：j = 0时，next[0] = -1j = 1时，next[1] = 0j = 2时，1 ≦">
+  <meta name="description" content="next值的定义  当j = 0时，next[0] = -1 集合非空情况下，next[ j ] = max{ k | 1 ≦ k &amp;lt; j 且T[0]…T[ k - 1 ] = T[ j - k ]…T[ j - 1 ] } 其他情况，next[ j ] = 0   设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：j = 0时，next[0] = -1j = 1时，ne">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KMP算法的模式T的next值推算">
 <meta property="og:url" content="http://jimmyqin.top/2019/09/26/KMP算法的模式T的next值推算/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="next值的定义 当j = 0时，next[0] = -1 集合非空情况下，next[j] = max{k | 1 ≦ k &amp;lt; j 且T[0]…T[K-1] = T[J-K]…T[J-1]} 其他情况，next[j] = 0  设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：j = 0时，next[0] = -1j = 1时，next[1] = 0j = 2时，1 ≦">
+<meta property="og:description" content="next值的定义  当j = 0时，next[0] = -1 集合非空情况下，next[ j ] = max{ k | 1 ≦ k &amp;lt; j 且T[0]…T[ k - 1 ] = T[ j - k ]…T[ j - 1 ] } 其他情况，next[ j ] = 0   设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：j = 0时，next[0] = -1j = 1时，ne">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-26T14:36:24.406Z">
+<meta property="og:updated_time" content="2019-09-26T15:10:23.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KMP算法的模式T的next值推算">
-<meta name="twitter:description" content="next值的定义 当j = 0时，next[0] = -1 集合非空情况下，next[j] = max{k | 1 ≦ k &amp;lt; j 且T[0]…T[K-1] = T[J-K]…T[J-1]} 其他情况，next[j] = 0  设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：j = 0时，next[0] = -1j = 1时，next[1] = 0j = 2时，1 ≦">
+<meta name="twitter:description" content="next值的定义  当j = 0时，next[0] = -1 集合非空情况下，next[ j ] = max{ k | 1 ≦ k &amp;lt; j 且T[0]…T[ k - 1 ] = T[ j - k ]…T[ j - 1 ] } 其他情况，next[ j ] = 0   设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：j = 0时，next[0] = -1j = 1时，ne">
 
 
 
@@ -379,7 +379,7 @@
                 
               
 
-              <time title="创建时间：2019-09-26 21:47:21 / 修改时间：22:36:24" itemprop="dateCreated datePublished" datetime="2019-09-26T21:47:21+08:00">2019-09-26</time>
+              <time title="创建时间：2019-09-26 21:47:21 / 修改时间：23:10:23" itemprop="dateCreated datePublished" datetime="2019-09-26T21:47:21+08:00">2019-09-26</time>
             </span>
           
 
@@ -431,13 +431,16 @@
       
 
       
-        <h5 id="next值的定义"><a href="#next值的定义" class="headerlink" title="next值的定义"></a>next值的定义</h5><ul>
+        <h5 id="next值的定义"><a href="#next值的定义" class="headerlink" title="next值的定义"></a>next值的定义</h5><blockquote>
+<ol>
 <li>当j = 0时，next[0] = -1</li>
-<li>集合非空情况下，next[j] = max{k | 1 ≦ k &lt; j 且T[0]…T[K-1] = T[J-K]…T[J-1]}</li>
-<li>其他情况，next[j] = 0</li>
-</ul>
-<h4 id="设模式T-abcabaa，根据next-j-的定义，计算分析过程如下："><a href="#设模式T-abcabaa，根据next-j-的定义，计算分析过程如下：" class="headerlink" title="设模式T=abcabaa，根据next[j]的定义，计算分析过程如下："></a>设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：</h4><p>j = 0时，next[0] = -1<br>j = 1时，next[1] = 0<br>j = 2时，1 ≦ k &lt; 2，得k {1}  ，根据定义公式得，T[0] …T[0] = a ，T[1]…T[1] = b，a ≠ b，根据定义的第三点，next[2] = 0<br>j = 3时，1 ≦ k &lt;3，得k{1,2}，根据定义公式，k取2得，T[0]…T[1] = ab，T[1]…T[2] = bc，ab ≠ bc，k再取1，T[0]…T[0] = a，T[2]…T[2] = c ，a ≠ c，得到next[3] = 0<br>j = 4时，1 ≦ k 4，得k{1,2,3}，根据定义，k = 3时，T[0]…T[2] = abc，T[1]…T[3] = bca，abc ≠ bca ，k = 2时，T[0]…T[1] = ab，T[2]…T[3] = ca，ab ≠ ca，k = 1时，T[0]..T[0]= a，T[3]..T[3] = a，a = a，所以next[4] = 1<br>以此类推，next[5] = 2，next[6] = 1。</p>
-<p>得出模式T的值为{-1,0,0,0,1,2,1}。</p>
+<li>集合非空情况下，next[ j ] = max{ k | 1 ≦ k &lt; j 且T[0]…T[ k - 1 ] = T[ j - k ]…T[ j - 1 ] }</li>
+<li>其他情况，next[ j ] = 0</li>
+</ol>
+</blockquote>
+<h4 id="设模式T-abcabaa，根据next-j-的定义，计算分析过程如下："><a href="#设模式T-abcabaa，根据next-j-的定义，计算分析过程如下：" class="headerlink" title="设模式T=abcabaa，根据next[j]的定义，计算分析过程如下："></a>设模式T=abcabaa，根据next[j]的定义，计算分析过程如下：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">j = 0时，next[0] = -1</span><br><span class="line">j = 1时，next[1] = 0</span><br><span class="line">j = 2时，1 ≦ k &lt; 2，得k&#123;1&#125;  ，根据定义公式，k = 1时，T[0] ...T[0] = a ，T[1]...T[1] = b，a ≠ b，根据定义的第三点，next[2] = 0</span><br><span class="line">j = 3时，1 ≦ k &lt; 3，得k&#123;1,2&#125;，根据定义公式，k = 2时，T[0]...T[1] = ab，T[1]...T[2] = bc，ab ≠ bc，k = 1时，T[0]...T[0] = a，T[2]...T[2] = c ，a ≠ c，得到next[3] = 0</span><br><span class="line">j = 4时，1 ≦ k &lt; 4，得k&#123;1,2,3&#125;，根据定义，k = 3时，T[0]...T[2] = abc，T[1]...T[3] = bca，abc ≠ bca ，k = 2时，T[0]...T[1] = ab，T[2]...T[3] = ca，ab ≠ ca，k = 1时，</span><br><span class="line">T[0]..T[0]= a，T[3]..T[3] = a，a = a，所以next[4] = 1</span><br><span class="line">以此类推，next[5] = 2，next[6] = 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>得出模式T的值为{-1,0,0,0,1,2,1}</strong></p>
 
       
     </div>
